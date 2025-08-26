@@ -8,6 +8,8 @@ import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Payment from "./pages/Payment.jsx";
+import Shop from "./pages/Shop.jsx";       // ⬅️ new
+import History from "./pages/History.jsx"; // ⬅️ new
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -64,9 +66,28 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/shop"
+            element={
+              <ProtectedRoute user={user}>
+                <Shop />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <ProtectedRoute user={user}>
+                <History />
+              </ProtectedRoute>
+            }
+          />
 
           {/* Fallback */}
-          <Route path="*" element={<Navigate to={user ? "/" : "/login"} replace />} />
+          <Route
+            path="*"
+            element={<Navigate to={user ? "/" : "/login"} replace />}
+          />
         </Routes>
       </main>
 

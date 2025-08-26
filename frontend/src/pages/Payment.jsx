@@ -33,7 +33,7 @@ export default function Payment({ cart, total, clearCart }) {
               {cart.map((item, idx) => (
                 <li key={idx}>
                   <span>{item.name}</span>
-                  <span>${item.price}</span>
+                  <span>Rs. {item.price}</span>
                 </li>
               ))}
             </ul>
